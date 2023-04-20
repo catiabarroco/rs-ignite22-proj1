@@ -15,12 +15,11 @@ export const buttonVariants = {
         disabled:
             'bg-transparent border-brand-secondary-200 border text-font-light',
     },
-    // secondary: {
-    //     default:
-    //         'border dark:bg-brand-secondary-700 dark:hover:bg-brand-secondary-200',
-    //     disabled:
-    //         'dark:bg-transparent dark:border-brand-secondary-200 border dark:text-font-light',
-    // }
+    primaryBorder: {
+        default: 'bg-primary hover:bg-primary-light text-secondary-white',
+        disabled:
+            'bg-transparent border-brand-secondary-200 border text-font-light',
+    },
 } as const;
 
 const sizeVariants = {

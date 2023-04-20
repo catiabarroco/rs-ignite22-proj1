@@ -6,3 +6,7 @@
 body {
   @apply bg-secondary-900 text-secondary-white font-textFamily
 }
+
+a:hover, a:focus{
+  @apply transition text-primary
+}
