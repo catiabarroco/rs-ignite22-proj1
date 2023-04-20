@@ -1,5 +1,6 @@
 import {Avatar} from "@components/common/Avatar";
 import Button from "@components/common/Button";
+import {Comment} from "@components/Comment";
 
 export function Post() {
     return (
@@ -27,7 +28,7 @@ export function Post() {
                 </p>
             </div>
 
-            <form className="flex flex-col border-t gap-4">
+            <form className="flex flex-col border-t gap-4 pb-8">
                 <strong className="pt-6">Deixe seu feedback</strong>
 
                 <textarea className="bg-secondary-900 p-4 rounded rounded-xl focus:border focus:border-primary hover:border hover:border-primary placeholder:text-secondary-400 text-secondary-300"
@@ -38,6 +39,7 @@ export function Post() {
                     <Button className="rounded rounded-lg" variant="primaryBorder" size="large">Publicar</Button>
                 </footer>
             </form>
+            <Comment />
         </article>
     )
 }
