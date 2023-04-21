@@ -10,22 +10,22 @@ type ButtonProps = {
 } & JSX.IntrinsicElements['button'];
 
 export const buttonVariants = {
-    primary: {
+    primaryBorder: {
         default: 'border border-primary bg-transparent hover:bg-primary text-primary hover:text-secondary-white',
         disabled:
             'bg-transparent border-brand-secondary-200 border text-font-light',
     },
-    primaryBorder: {
+    primary: {
         default: 'bg-primary hover:bg-primary-light text-secondary-white',
         disabled:
-            'bg-transparent border-brand-secondary-200 border text-font-light',
+            'cursor-not-allowed opacity-50 bg-primary',
     },
     iconStyleDangerHover: {
         default: 'text-secondary-400 hover:text-danger',
         disabled: '',
     },
-    iconStyle: {
-        default: 'text-secondary-400 hover:text-secondary-100',
+    iconStylePrimaryHover: {
+        default: 'text-secondary-400 hover:text-primary',
         disabled: '',
     },
 } as const;

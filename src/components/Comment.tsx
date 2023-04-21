@@ -22,13 +22,13 @@ export function Comment({ content, onDeleteComment }: CommentProps) {
     return (
         <div className="flex gap-7">
 
-            <Avatar hasBorder={false} src="https://github.com/diego3g.png" alt="avatar"/>
+            <Avatar hasBorder={false} src="https://github.com/catiabarroco-xgeeks.png" alt="avatar"/>
 
             <div className="w-full">
                 <div className="bg-secondary-700 p-4 w-full rounded rounded-xl mb-4">
                     <header className="flex justify-between pb-4">
                         <div className="flex flex-col">
-                            <strong>Diego Fernandes</strong>
+                            <strong>Cátia Barroco</strong>
                             <time className="text-secondary-400" title="11 de Maio às 08:13h" dateTime="2022-05-11 08:13:00">Cerca de 1h atrás</time>
                         </div>
 
@@ -46,7 +46,7 @@ export function Comment({ content, onDeleteComment }: CommentProps) {
                 </div>
 
                 <footer>
-                    <Button variant="iconStyle" size="xsmall" className="flex gap-2 " onClick={handleLikeComment}>
+                    <Button variant="iconStylePrimaryHover" size="xsmall" className="flex gap-2 " onClick={handleLikeComment}>
                         <SpriteIcon
                             category={SpritesCategories.COMMON}
                             name="thumbs-up"

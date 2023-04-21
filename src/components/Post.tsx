@@ -67,9 +67,9 @@ export function Post({ post }: PostProps) {
             <div className="text-secondary-300 flex flex-col gap-5 py-6">
             {post.content.map(line => {
                 if (line.type === 'paragraph') {
-                    return <p>{line.content}</p>;
+                    return <p key={line.content}>{line.content}</p>;
                 } else if (line.type === 'link') {
-                    return <p className="text-primary"><a href="#">{line.content}</a></p>
+                    return <p key={line.content} className="text-primary"><a href="#">{line.content}</a></p>
                 }
             })}
 
@@ -79,7 +79,7 @@ export function Post({ post }: PostProps) {
                 <strong className="pt-6">Leave your feedback</strong>
 
                 <textarea className="bg-secondary-900 p-4 rounded rounded-xl focus:border focus:border-primary hover:border hover:border-primary placeholder:text-secondary-400 text-secondary-300"
-                    placeholder="Deixe um comentário..."
+                    placeholder="Leave your comment..."
                           name="comment"
                           value={newCommentText}
                           onChange={handleNewCommentChange}
@@ -88,7 +88,7 @@ export function Post({ post }: PostProps) {
                 />
 
                 <footer>
-                    <Button type="submit" disabled={isNewCommentEmpty} className="rounded rounded-lg" variant="primaryBorder" size="large">Publish</Button>
+                    <Button type="submit" className="rounded rounded-lg" variant="primary" size="large" disabled={isNewCommentEmpty}>Publish</Button>
                 </footer>
             </form>
 

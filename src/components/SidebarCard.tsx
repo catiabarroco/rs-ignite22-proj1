@@ -13,7 +13,7 @@ export function SidebarCard() {
                 <div className="text-secondary-400 text-sm">Front-end Developer</div>
             </div>
             <footer className="flex border-t border-secondary-600 p-8 justify-center bg-secondary-800 rounded rounded-b-xl">
-                <Button className="flex gap-2 rounded rounded-lg items-center" size="large">
+                <Button className="flex gap-2 rounded rounded-lg items-center" size="large" variant="primaryBorder">
                     <SpriteIcon
                         category={SpritesCategories.COMMON}
                         name="edit"
