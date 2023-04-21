@@ -1,8 +1,5 @@
-import { ImgHTMLAttributes } from "react";
+import {AvatarProps} from "@shared/types/types";
 
-interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
-    hasBorder?: boolean;
-}
 
 export function Avatar({ hasBorder = true, ...props}: AvatarProps) {
     return (

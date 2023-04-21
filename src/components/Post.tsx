@@ -3,33 +3,12 @@ import Button from "@components/common/Button";
 import {Comment} from "@components/Comment";
 import { format, formatDistanceToNow } from 'date-fns';
 import {enAU} from "date-fns/locale";
-import {useState} from "react";
-
-interface Author {
-    name: string;
-    role: string;
-    avatarUrl: string;
-}
-
-interface Content {
-    type: 'paragraph' | 'link';
-    content: string;
-}
-
-export interface PostType {
-    id: number;
-    author: Author;
-    publishedAt: Date;
-    content: Content[];
-}
-
-interface PostProps {
-    post: PostType;
-}
+import {ChangeEvent, FormEvent, InvalidEvent, useState} from "react";
+import {PostProps} from "@shared/types/types";
 
 export function Post({ post }: PostProps) {
     const [comments, setComments] = useState([
-        'Post muito bacana, hein?!'
+        'Nice post'
     ]);
 
     const [newCommentText, setNewCommentText] = useState('');
@@ -97,7 +76,7 @@ export function Post({ post }: PostProps) {
             </div>
 
             <form onSubmit={handleCrateNewComment} className="flex flex-col border-t gap-4 pb-8">
-                <strong className="pt-6">Deixe seu feedback</strong>
+                <strong className="pt-6">Leave your feedback</strong>
 
                 <textarea className="bg-secondary-900 p-4 rounded rounded-xl focus:border focus:border-primary hover:border hover:border-primary placeholder:text-secondary-400 text-secondary-300"
                     placeholder="Deixe um comentário..."
@@ -109,7 +88,7 @@ export function Post({ post }: PostProps) {
                 />
 
                 <footer>
-                    <Button type="submit" disabled={isNewCommentEmpty} className="rounded rounded-lg" variant="primaryBorder" size="large">Publicar</Button>
+                    <Button type="submit" disabled={isNewCommentEmpty} className="rounded rounded-lg" variant="primaryBorder" size="large">Publish</Button>
                 </footer>
             </form>
 
@@ -118,8 +97,8 @@ export function Post({ post }: PostProps) {
                 return (
                     <Comment
                         key={comment}
-                        // content={comment}
-                        // onDeleteComment={deleteComment}
+                        content={comment}
+                        onDeleteComment={deleteComment}
                     />
                 )
             })}
