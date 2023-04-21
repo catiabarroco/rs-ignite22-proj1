@@ -1,31 +1,47 @@
 import {Avatar} from "@components/common/Avatar";
 import Button from "@components/common/Button";
 import {Comment} from "@components/Comment";
+import { format, formatDistanceToNow } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
+import {enAU} from "date-fns/locale";
 
-export function Post() {
+export function Post({ author, publishedAt, content }) {
+    const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
+        locale: enAU,
+    });
+
+    const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+        locale: enAU,
+        addSuffix: true
+    });
     return (
-        <article className="bg-secondary-800 rounded rounded-xl 2/3 p-10">
+        <article className="bg-secondary-800 rounded rounded-xl 2/3 p-10 mb-5">
             <header className="flex justify-between text-secondary-400 items-center pb-3">
                 <div className="flex gap-7">
-                    <Avatar src="https://github.com/catiabarroco-xgeeks.png"/>
+                    <Avatar src={author.avatarUrl}/>
                     <div className="flex flex-col gap-2">
-                        <strong>Cátia Barroco</strong>
-                        <span className="text-secondary-400">Web Developer</span>
+                        <strong>{author.name}</strong>
+                        <span className="text-secondary-400">{author.role}</span>
                     </div>
                 </div>
 
-                <time title="11 de Maio às 08:13h" dateTime="2022-05-11 08:13:00">Publicado há 1h</time>
+                <time title={publishedDateFormatted} dateTime={publishedAt.toISOString()}>
+                    {publishedDateRelativeToNow}
+                </time>
             </header>
 
             <div className="text-secondary-300 flex flex-col gap-5 py-6">
-                <p>Fala galeraa 👋</p>
-                <p>Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀</p>
-                <p className="text-primary"><a href="">👉 jane.design/doctorcare</a></p>
-                <p className="text-primary">
-                    <a href="">#novoprojeto</a>{' '}
-                    <a href="">#nlw</a>{' '}
-                    <a href="">#rocketseat</a>
-                </p>
+            {content.map(line => {
+                if (line.type === 'paragraph') {
+                    return <p>{line.content}</p>;
+                } else if (line.type === 'link') {
+                    return <p className="text-primary"><a href="#">{line.content}</a></p>
+                }
+            })}
+
+
+
+
             </div>
 
             <form className="flex flex-col border-t gap-4 pb-8">

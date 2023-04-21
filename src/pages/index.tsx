@@ -40,15 +40,18 @@ export default function Home() {
       <div className="container mx-auto py-8 flex gap-7">
 
               <SidebarCard/>
-          {posts.map(post => {
-              return (
-                  <Post
-                      author={post.author}
-                      content={post.content}
-                      publishedAt={post.publishedAt}
-                  />
-              )
-          })}
+          <div>
+              {posts.map(post => {
+                  return (
+                      <Post
+                          author={post.author}
+                          content={post.content}
+                          publishedAt={post.publishedAt}
+                      />
+                  )
+              })}
+          </div>
+
 
 
       </div>
