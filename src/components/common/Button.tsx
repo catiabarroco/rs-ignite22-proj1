@@ -20,6 +20,14 @@ export const buttonVariants = {
         disabled:
             'bg-transparent border-brand-secondary-200 border text-font-light',
     },
+    iconStyleDangerHover: {
+        default: 'text-secondary-400 hover:text-danger',
+        disabled: '',
+    },
+    iconStyle: {
+        default: 'text-secondary-400 hover:text-secondary-100',
+        disabled: '',
+    },
 } as const;
 
 const sizeVariants = {
